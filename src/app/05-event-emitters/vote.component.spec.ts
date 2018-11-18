@@ -7,6 +7,6 @@ describe('VoteComponent', () => {
     component = new VoteComponent();
   });
 
-  it('', () => {
-  });
+  // it('', () => {
+  // });
 });
