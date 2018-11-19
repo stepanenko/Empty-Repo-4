@@ -57,4 +57,22 @@ describe('TodosComponent', () => {
     expect(component.message).toBe(error);
   });
 
+  it('should delete todo if confirmed', () => {
+    spyOn(window, 'confirm').and.returnValue(true);
+    const spy = spyOn(service, 'delete').and.returnValue(empty());
+
+    component.delete(1);
+
+    expect(spy).toHaveBeenCalledWith(1);
+  });
+
+  it('should not delete todo if not confirmed', () => {
+    spyOn(window, 'confirm').and.returnValue(false);
+    const spy = spyOn(service, 'delete').and.returnValue(empty());
+
+    component.delete(1);
+
+    expect(spy).not.toHaveBeenCalled();
+  });
+
 });
