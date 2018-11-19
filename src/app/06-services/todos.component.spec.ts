@@ -1,6 +1,6 @@
 import { TodosComponent } from './todos.component';
 import { TodoService } from './todo.service';
-import { Observable, from } from 'rxjs';
+import { from, empty, throwError } from 'rxjs';
 
 describe('TodosComponent', () => {
   let component: TodosComponent;
@@ -23,6 +23,38 @@ describe('TodosComponent', () => {
     expect(component.todos.length).toBeGreaterThan(0);
     expect(component.todos.length).toBe(3);
     expect(component.todos).toBe(todos);
+  });
+
+  it('should call the server to save the changes', () => {
+    const spy = spyOn(service, 'add').and.callFake(t => {
+      return empty();
+    });
+
+    component.add();
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('should add a new todo', () => {
+    const todo = { id: 1 };
+    spyOn(service, 'add').and.returnValue(from([ todo ]));
+
+    // spyOn(service, 'add').and.callFake(t => {
+    //   return from([ todo ]);
+    // });  // also valid test
+
+    component.add();
+
+    expect(component.todos.indexOf(todo)).toBeGreaterThan(-1);
+  });
+
+  it('should throw an error when needed', () => {
+    const error = 'error from server';
+    spyOn(service, 'add').and.returnValue(throwError(error));
+
+    component.add();
+
+    expect(component.message).toBe(error);
   });
 
 });
