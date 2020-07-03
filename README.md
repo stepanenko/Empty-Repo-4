@@ -1,4 +1,6 @@
 
-## Empty Repo 4
+## Practical Design Patterns in JavaScript
 
-Date: 25.06.20
+Author: **Jonathan Mills**
+
+Progress: **14/57**
