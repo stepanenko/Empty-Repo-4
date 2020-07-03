@@ -14,8 +14,4 @@ Task.prototype = {
   }
 }
 
-let task1 = new Task('Run');
-let task2 = new Task('Shopping');
-
-task1.complete();
-task2.save();
+module.exports = Task;

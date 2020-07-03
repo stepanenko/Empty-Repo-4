@@ -1,5 +1,5 @@
 
-const Task = require('./task');
+const Task = require('./task_proto');
 const TaskClass = require('./task_class');
 
 let task1 = new Task('Run');
