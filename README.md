@@ -3,4 +3,6 @@
 
 Author: **Jonathan Mills**
 
-Progress: **33/57**
+Practiced: **36/57**
+
+Watched: **45/57**

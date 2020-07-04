@@ -1,5 +1,5 @@
 
-const Repo = function() {
+const repo = function() {
   let called = 0;
 
   const save = function(task) {
@@ -12,6 +12,4 @@ const Repo = function() {
   };
 };
 
-let repo = new Repo();
-
-repo.save('Buy');
+module.exports = repo();
